@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from numpy import array, int64
 
 from sklearn.datasets import make_blobs
+
 # ---------------------------250 образцов, 4 класса, хорошо разделимы-----------------------
 """
 X, y = make_blobs(n_samples=250, n_features=5, centers=4, random_state=1, cluster_std=0.3)
@@ -112,15 +113,14 @@ plt.ylabel("Second")
 plt.show()
 
 """
-
-centers = [[1,1,1],[1,3,1],[1,5,1],[1,7,1]]
+# ------4 кластера, расположены вертикально друг под другом, и вывод признаков/классов в соответствии с заданием------
+centers = [[1, 1, 1], [1, 3, 1], [1, 5, 1], [1, 7, 1]]
 X8, y8 = make_blobs(n_samples=157, n_features=2, centers=centers, random_state=1, cluster_std=0.1)
 
-
-y8 = np.reshape(y8,(np.shape(X8)[0],1))
-Xy = np.concatenate((X8,y8),axis=1)
+y8 = np.reshape(y8, (np.shape(X8)[0], 1))
+Xy = np.concatenate((X8, y8), axis=1)  # тут получаем матрицу с добавленным столбцом класса
 print("первый признак первых восьми образцов")
-print(X8[:8:1,1])
+print(X8[:8:1, 1])
 print()
 
 print("все признаки первых восьми образцов")
@@ -128,7 +128,7 @@ print(X8[:8:1])
 print()
 
 print("все признаки первых восьми образцов и соответствующий им класс")
-cols=[0,3]
+cols = [0, 3]
 print(Xy[:8:1])
 print()
 
@@ -137,7 +137,7 @@ print(X8[147:154:1])
 print()
 
 print("второй признак образцов c 147 по 153")
-print(X8[147:154:1,2])
+print(X8[147:154:1, 2])
 
 np.unique(y8, return_counts=True)
 
