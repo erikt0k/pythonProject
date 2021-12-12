@@ -119,8 +119,9 @@ X8, y8 = make_blobs(n_samples=157, n_features=2, centers=centers, random_state=1
 
 y8 = np.reshape(y8, (np.shape(X8)[0], 1))
 Xy = np.concatenate((X8, y8), axis=1)  # тут получаем матрицу с добавленным столбцом класса
+
 print("первый признак первых восьми образцов")
-print(X8[:8:1, 1])
+print(X8[:8:1, 0])
 print()
 
 print("все признаки первых восьми образцов")
@@ -137,7 +138,8 @@ print(X8[147:154:1])
 print()
 
 print("второй признак образцов c 147 по 153")
-print(X8[147:154:1, 2])
+print(X8[147:154:1, 1])
+
 
 np.unique(y8, return_counts=True)
 
